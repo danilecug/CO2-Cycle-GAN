@@ -8,11 +8,12 @@ The porosity is calculated from permeability field, based on the following equat
 $$\phi=0.05(\log k+2)+0.05$$ 
 
 ## Numerical Simulation 
-In this research, we appy the commerical numerical simlator (CMG-GEM, 2018) to conduct fluid numerical simulation. We collect the water saturation and pressure every 30 days for each permeability realization. Totally, 1800 days (5 years) simulations are conducted, and 60 snapshots for each geological model are collected for training and testing the  Cycle-GAN proposed in this research.  75% dataset from the total dataset are used to train the network, and the remaining 25% dataset are used for testing the performance of the well-trained Cycle-GAN. 
+In this research, we appy the commerical numerical simlator (CMG-GEM, 2018) to conduct fluid numerical simulation. We collect the water saturation and pressure every 30 days for each permeability realization. Totally, 1800 days (5 years) simulations are conducted, and 60 snapshots for each geological model are collected for training and testing the  Cycle-GAN proposed in this research.  75% dataset from the total dataset are used to train the network, and the remaining 25% dataset are used for testing the performance of the well-trained Cycle-GAN.
 
+## Cycle-GAN 
+Cycle-GAN is one special type of the vanila GAN proposed by Goodfellow, et al., (2014). There are some GAN which are similar to Cycle-GAN, such as Disco-GAN amd biodirection GAN. All of those GANs has tow paris of generative models and discriminative models. We define the forward process as $F:x\rightarrow y$, which shows the domain transforamtion from domain X to domain Y; we define the inverse process as $I:y\rightarrow x$, which shows the domain transforamtion from domain Y to domain X. 
 
-
-
-
-
-
+## Training and Testing Performance
+We evaluate the performance of the proxy model via following equation: 
+- RMSE: $RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i -\hat {x_i})^2}$ 
+- SSIM: $SSIM({\bf u},{\bf v})=\frac{2\mu_{{\bf u}}\mu_{{\bf v}}+C_{1}}{\mu_{{\bf \textbf{{, \bf u}}}}^{2}+\mu_{{\bf v}}^{2}+C_{1}}\cdot\frac{2\sigma_{{\bf uv}}+C_{2}}{\sigma_{{\bf u}}^{2}+\sigma_{{\bf v}}^{2}+C_{2}}$, where 
